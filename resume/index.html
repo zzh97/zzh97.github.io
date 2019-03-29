@@ -44,6 +44,12 @@ body{
 canvas{
     position: absolute;
 }
+#picture{
+    position: absolute;
+    max-width: 90rem;
+    min-width: @min_width;
+    width: 100%;
+}
 #button{
     position: fixed;
     bottom: 0;
@@ -326,7 +332,12 @@ var downLoad = function(){
 //截图（通过html2canvas.js）
 var camera = function(area){
     html2canvas(area).then(function(canvas) {
-        document.body.appendChild(canvas);
+        //document.body.appendChild('canvas');
+        var dataURL = canvas.toDataURL("image/png");
+        var picture = document.createElement('img');
+        picture.id = 'picture';
+        picture.src = dataURL;
+        document.body.appendChild(picture);
     });
 };
 //底边按钮click事件
@@ -336,8 +347,8 @@ var btn_click = function(btn){
     btn.click(function(){ 
         if(colse){
             //删除截图
-            var canvas = document.getElementsByTagName('canvas')[0];
-            document.body.removeChild(canvas);
+            var img = document.getElementsByTagName('img')[0];
+            document.body.removeChild(img);
             //改变按钮状态
             colse = 0;
             btn.text('输出PNG格式图片');
@@ -347,7 +358,7 @@ var btn_click = function(btn){
             //改变按钮状态
             colse = 1;
             btn.text('关闭(右键直接保存)');
-        } 
+        }
     });
 };
 //程序唯一入口
