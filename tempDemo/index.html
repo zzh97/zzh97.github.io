@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 10px;
+}
+body{
+    font-size: 16px;
+}
+ul{
+    list-style: none;
+}
+#zzh_box{
+    width: 100%;
+    height: 100vh;
+    background: #543;
+    text-align: center;
+    color: #fff;
+    font-size: 1.6rem;
+}
+header{
+    float: left;
+    width: 100%;
+    height: 10vh;
+    background: #985;
+    line-height: 10vh;
+}
+nav{
+    float: left;
+    margin-top: 7%;
+    width: 100%;
+    height: 59vh;
+}
+nav .user{
+    margin: 0 auto 0;
+    width: 20vh;
+    height: 20vh;
+    border-radius: 10vh;
+    background: #e44;
+    line-height: 20vh;
+    cursor: pointer;
+}
+nav .user:hover{
+    background: #f55;
+}
+nav .part{
+    float: left;
+    margin-left: 7%;
+    margin-top: 3vh;
+    width: 40%;
+    height: 15vh;
+    line-height: 15vh;
+    cursor: pointer;
+}
+nav .bay{
+    background: #e94;
+}
+nav .bay:hover{
+    background: #fa5;
+}
+nav .play{
+    background: #94e;
+}
+nav .play:hover{
+    background: #a5f;
+}
+nav .news{
+    background: #49e;
+}
+nav .news:hover{
+    background: #5af;
+}
+nav .about{
+    background: #e49;
+}
+nav .about:hover{
+    background: #f5a;
+}
+footer{
+    float: left;
+    margin-top: 7%;
+    width: 100%;
+    height: 20vh;
+    background: #985;
+    line-height: 20vh;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+    <div id="zzh_box">
+        <header>
+            <div class="title">{{ title }}</div>
+        </header>
+        <nav>
+            <div class="user">
+                <div class="logo"></div>
+                <div class="text">{{ userText }}</div>
+            </div>
+            <div class="part bay">
+                <div class="logo"></div>
+                <div class="text">{{ bayText }}</div>
+            </div>
+            <div class="part play">
+                    <div class="logo"></div>
+                    <div class="text">{{ playText }}</div>
+            </div>
+            <div class="part news">
+                <div class="logo"></div>
+                <div class="text">{{ newsText }}</div>
+            </div>
+            <div class="part about">
+                <div class="logo"></div>
+                <div class="text">{{ aboutText }}</div>
+            </div>
+        </nav>
+        <footer>{{ info }}</footer>
+    </div>
+<script src="./lib/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '#zzh_box',
+        data: {
+            title: '筷客快充',
+            userText: '个人中心',
+            bayText: '账户充值',
+            playText: '开始充电',
+            newsText: '浏览资讯',
+            aboutText: '关于我们',
+            info: '欢迎下载“聚名堂”APP，享用更多功能'
+        }
+    });
+</script>
+</body>
+</html>
